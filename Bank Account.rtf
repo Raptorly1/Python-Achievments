@@ -1,0 +1,49 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2638
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 D = dict()\
+\
+\
+while True:\
+  print("Welcome to the bank! Please log in. ")\
+  print("")\
+  use = input("Username: ")\
+  pas = input("Password: ")\
+  \
+  if use not in D:\
+    D[use] = pas, 0\
+    print("New Account Created. \\n")\
+  \
+  money = D[use][1]\
+  print("")\
+  \
+  if D[use][0] == pas:\
+    print("Logging In... \\n")\
+  else:\
+    print("Wrong Password. Please re-enter your password. ")\
+    continue\
+  while True:\
+    choice = input("Welcome " + str(use) + "! You currently have $" + str(money) + " in your account. What would you like to do? \\n 1. Make a deposit \\n 2. Make a withdrawal \\n 3. Change your password \\n 4. Log out \\n")\
+    if choice == '1':\
+      dep = int(input("How much money would you like to deposit?  "))\
+      money += dep\
+    elif choice == '2':\
+      draw = int(input("How much money would you like to withdraw?  "))\
+      money -= draw\
+  \
+    elif choice == '3':\
+      pas2 = input("Your current password is  " + str(pas) + "  What would you like to change it to? \\n")\
+      D[use] = pas2, money\
+    elif choice == '4':\
+      print("Logging out...")\
+      D[use] = pas, money\
+      break\
+    print("")\
+    \
+  \
+  \
+  }
